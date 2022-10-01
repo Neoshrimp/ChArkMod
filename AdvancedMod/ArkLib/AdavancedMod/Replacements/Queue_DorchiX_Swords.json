@@ -1,0 +1,63 @@
+{
+    "Queue_DorchiX_Swords": {
+        "Enemys": [
+            "S1_BossDorchiX_Sword",
+            "S1_BossDorchiX_Sword",
+            "S1_BossDorchiX_Sword",
+            "S1_BossDorchiX_Sword"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [
+            {
+                "x": -7.5,
+                "y": 0,
+                "z": 3
+            },
+            {
+                "x": 7.5,
+                "y": 0,
+                "z": 3
+            },
+            {
+                "x": -9,
+                "y": 0,
+                "z": 0
+            },
+            {
+                "x": 9,
+                "y": 0,
+                "z": 0
+            }
+        ],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": 0,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": true,
+        "Wave2": [],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 0,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 0,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "CustomBGM": 0,
+        "_gdeSchema": "EnemyQueue",
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    }
+}
