@@ -1,0 +1,105 @@
+使用方法：放在plugins文件夹内
+游戏中按下c键开启输入框，输入代码，按下确认键
+没有备注的指令均为不稳定指令，不建议使用
+
+
+指令列表：
+关卡内指令
+roulette		转盘
+fogout		    地图迷雾全开
+fogwayout	    地图迷雾全开
+fogon		    地图迷雾全关
+scale           修改游戏运行速度，待完善（不建议使用）
+testfield		从当前关卡敌人中随机选择组进行战斗
+testsandbox		与教官进行战斗
+fastrun		    速度增加
+peace		    和平模式：遇敌不触发战斗
+fly		        飞行模式
+nextstage		跳至下一关篝火
+getkey		    获得10把钥匙
+nextcrimson		直接进入荒野    
+eventstage	    自选当前场景可用事件
+eventall        自选事件
+enforce         强化
+allenforce		自选技能强化
+cleansed		清除周围敌人
+getbook		    获得各种技能书
+getbook1		获得20本普通技能书
+getbook2		获得20本无限技能书
+getbook3		获得20本定势技能书
+getbook4		获得20本黄金技能书
+learnlucy		学习露西稀有技能
+strength1		力量试炼
+strength2		力量试炼
+geteq0          获得所有白色装备
+geteq1          获得所有绿色装备
+geteq2          获得所有蓝有装备
+geteq3          获得所有紫色装备
+geteq4          获得所有金色装备
+getstone		100灵魂石
+getmoney        获得3000金币
+getactive       获得所有主动道具
+getpotion       获得所有药水
+geteqrb         获得16个兔子面具
+getpa1          获得遗物
+getpa2          获得遗物
+getpa3          获得遗物
+getboss		    获得所有boss专属掉落
+getstage        获得清理一关会获得的奖励
+getscroll       获得每种卷轴各5个
+enemycast       知晓敌方意图
+enemycastoff    关闭敌方意图
+myhphalf        使我方全体生命值减半
+entest          *未知指令
+PotionTest	    *未知指令
+backmain		回到标题界面（不建议使用）
+retiling		控制台打印字符
+testboss        与当前关卡的boss战斗（额外战斗，不清空地图）
+clearfast       可以进入下一关
+clear           可以直接前往下一关
+clearboss       可以直接前往下一关
+save		    保存
+load		    读取
+getStrike		获得技能最后一击
+crimsonkey      获得荒野钥匙
+getring         获得星戒、太极戒指、月影
+
+战斗内指令：
+redherb		    获得四个烟雾弹
+fate		    在手牌中加一张命运
+myhp0		    使最右边的友方生命值变为0
+de010		    对最右边的敌人造成10点伤害
+deahalf		    使所有敌人生命值减半
+daa15		    对所有友军造成15点物理伤害
+getmoney		金钱+3000
+pain1
+pain2
+dodtest1
+dodtest2
+clear1		    使所有敌方生命值变为1
+clear		    击败所有敌人
+daa999		    对所有友军造成999伤害
+debugskill1	    给予调试技能
+debugskill2	    给予调试技能
+debugskill3	    给予调试技能
+debugskill4	    给予调试技能
+time		    启动战斗计时器
+soundtest		播放一段音乐
+draw		    抽一张牌
+drawto7         抽牌至拥有7张手牌
+heal		    治疗所有友军99点
+enemyheal	    治疗所有敌军99点
+discard		    丢弃最上方的手牌
+discardall      丢弃所有
+targetview	    显示敌方技能和攻击目标（下回合开始）
+targetviewoff   关闭显示敌方技能和攻击目标（下回合开始）
+lian		    丢弃所有手牌，抽一张牌
+de0100		    对最右边的敌人造成100点不无视防御的伤害
+turn		    *未知指令
+da010		    对最左边的友方造成10点物理伤害
+dea100	        对所有敌方造成100点不无视防御的伤害
+on		        *未知指令
+enemydebuff	    对所有敌人施加一层弱点识破
+getpotion       获得每种药水
+getactive       获得所有主动道具
+

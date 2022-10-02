@@ -1,0 +1,107 @@
+How to use it: put it in the plugins folder
+In the game, press the c key to open the input box, enter the code, and press the OK key
+Instructions without remarks are unstable and not recommended
+
+
+Codes list：
+Field codes:
+roulette		Start roulette
+fogout		    Map fog out
+fogwayout	    Map fog out
+fogon		    Map fog close
+scale           	Game speed set to x1.0
+scale2           	Game speed set to x2.0
+scale3           	Game speed set to x3.0
+testfield		Randomly select a group of enemies from the current level to fight
+testsandbox		Fight with Examiner
+fastrun		    Increase lucy speed and running speed
+peace		    Peace mode: Do not trigger the battle
+fly		        Flight Mode: can go through obstacle
+nextstage		Jump to the next campfire
+getkey		    Get 10 keys
+nextcrimson		Directly into the wilderness    
+eventstage	    Select the available events of the current stage
+eventall         	Select whole events
+enforce         	Start a skill enforce
+allenforce		Start a skill enforce with all enforce options
+cleansed		Clear the surrounding enemies
+getbook		    Obtain various skill books
+getbook1		Obtain 20 Skill Books
+getbook2		Obtain 20 Infinite Skill Books
+getbook3		Obtain 20 Skill Book - Healing 101 Books
+getbook4		Obtain 20 Golden Skill Books
+learnlucy		Learn a Lucy's rare skills
+strength1		Start Trial of Strength
+strength2		Start Trial of Strength
+geteq0         	 Get all White level equipment
+geteq1          	Get all Green level equipment
+geteq2          	Get all Blue level equipment
+geteq3          	Get all Purple level equipment
+geteq4          	Get all Gold level equipment
+getstone		Obtain 100 Soul Stone
+getmoney         	Obtain 3000 money
+getactive       	Get all Active Items
+getpotion       	Get all Potions
+geteqrb         	Get 16 Dodo's Rabbit Masks
+getpa1          	Get Relic, part1
+getpa2         	 Get Relic, part2
+getpa3          	Get Relic, part3
+getboss		   Get exclusive drop of all bosses
+getstage        	Get the reward from the clearance a stage
+getscroll       	Obtain 5 reels of each type
+enemycast       	Know the enemy's intention
+enemycastoff    	Close Know the enemy's intention
+myhphalf        	Halve all ally HP
+entest          	*Unknow code
+PotionTest	    *Unknow code
+backmain		Back to the title (not recommended)
+retiling		
+testboss       	 Fight the boss of the current stage (extra fight, do not empty the map)
+clearfast       	Can go directly to the next stage
+clear           	Can go directly to the next stage
+clearboss       	Can go directly to the next stage
+save		    Save
+load		    Load
+getStrike		Learn the skill: Decisive Strike 
+crimsonkey      	Get the wilderness key
+getring         	Obtain Star Ring, Taeguk Ring, Moon Phase
+
+Battle codes:
+redherb		    Gain 4 Smokescreen
+fate		    Add a "Destiny' to your hand
+myhp0		    Change the life value of the rightmost ally to 0
+de010		    Cause 10 points of damage to the rightmost enemy
+deahalf		    Reduce all enemies' HP by half
+daa15		    Cause 15 points damage to all ally
+getmoney		Money+3000
+pain1
+pain2
+dodtest1
+dodtest2
+clear1		    Change all enemies' HP to 1
+clear		    Instance defeat all enemies
+daa999		    Cause 999 damage to all ally
+debugskill1	    Get debugskill
+debugskill2	    Get debugskill
+debugskill3	    Get debugskill
+debugskill4	    Get debugskill
+time		    Start the timer
+soundtest		Play a music
+draw		    Draw a card
+drawto7         	Draw until you have 7 cards
+heal		   Healing all ally 99 points
+enemyheal	    Healing all enemy 99 points
+discard		    Discard the top card
+discardall      	Discard all cards
+targetview	    Display the enemy's skills and attack target (from the next round)
+targetviewoff  	Close Display the enemy's skills and attack target (from the next round)
+lian		    Discard all cards, then draw a card
+de0100		    Cause 100 points of damage to the rightmost enemy
+turn		    Reset AP and overload
+da010		    Cause 10 points of physical damage to the leftmost ally
+dea100	        	Cause 100 points of damage to all enemies
+on		        *Unknow code
+enemydebuff	    Apply a Identify Weakness to all enemies
+getpotion       	Get each potion
+getactive       	Get all Active Items
+
