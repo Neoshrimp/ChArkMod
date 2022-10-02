@@ -31,7 +31,9 @@ namespace ArkLib
     public class ArkLib : BaseUnityPlugin
     {
         public const string GUID = "com.DRainw.ChArkMod.ArkLib";
-        public const string version = "1.1.0";
+        public const string version = "1.1.1";
+
+        private static ConfigEntry<bool> CreatSample;
 
         private static readonly Harmony harmony = new Harmony(GUID);
         private static readonly string root = BepInEx.Paths.PluginPath + "\\ArkLib";
@@ -40,6 +42,10 @@ namespace ArkLib
 
         void Awake()
         {
+            Logger.LogInfo("BepInex: ArkLib loading.");
+
+            CreatSample = Config.Bind("config", "CreatSample", false, "Force generation of Sample folder.\n强制生成Sample文件夹 ");
+
             try
             {
                 CheckRoot();
@@ -67,23 +73,24 @@ namespace ArkLib
         static void CheckRoot()
         {
             //初始化
-            if (!Directory.Exists(root) || !Directory.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data") || !File.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\_check.json"))
+            //initialization
+            if (CreatSample.Value || !Directory.Exists(root) || !Directory.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data") || !File.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\_check.json"))
             {
                 PatchInit();
             }
-            //if(配置文件中生成模板 == true)
-            //PatchInit();
+            
         }
 
         //创建模板
+        //Create Template
         static void PatchInit()
         {
 
             //创建数据文件夹
             Directory.CreateDirectory(BepInEx.Paths.PluginPath + "\\ArkLib");
             Directory.CreateDirectory(BepInEx.Paths.PluginPath + "\\ArkLib\\_data");
-
-            //创建内部文件夹
+            
+            //创建Sample文件夹
             Directory.CreateDirectory(BepInEx.Paths.PluginPath + "\\ArkLib\\Sample");
             Directory.CreateDirectory(BepInEx.Paths.PluginPath + "\\ArkLib\\Sample\\Additions");
             Directory.CreateDirectory(BepInEx.Paths.PluginPath + "\\ArkLib\\Sample\\Additions\\statchange");
@@ -112,20 +119,23 @@ namespace ArkLib
             }
 
             //计算文件夹是否有变动
+            //Whether the calculation folder has changed
             string _check = string.Empty;
 
             foreach (DirectoryInfo nf in Root.GetDirectories())
             {
                 //遍历所有mod数据文件夹
+                //Traverse all mod folders
                 if (nf.Name != "_data")
                 {
                     //进入子文件夹
+                    //Enter Subfolder
                     foreach (FileInfo nf1 in nf.GetFiles())
                     {
                         if (nf1.Name == "config.json")
                         {
 
-                            //读取json
+                            //read json
                             StreamReader reader = File.OpenText(nf1.FullName);
                             JsonTextReader jsonTextReader = new JsonTextReader(reader);
                             JObject config = (JObject)JToken.ReadFrom(jsonTextReader);
@@ -161,6 +171,7 @@ namespace ArkLib
                             }
 
                             //如果hash值有变化，写入新config文件
+                            //If the hash value changes, write a new config file
                             if (change)
                             {
                                 string json_output = JsonConvert.SerializeObject(config, Newtonsoft.Json.Formatting.Indented);
@@ -169,6 +180,7 @@ namespace ArkLib
                             }
 
                             //检查mod是否有卸载或增加，将文件夹名字加入字符串
+                            //Check whether the mod is uninstalled or added, and add the folder name to the string
                             _check += nf.FullName;
 
                             break;
@@ -179,21 +191,25 @@ namespace ArkLib
 
             int _checkCode = 0;
             //若为空，说明没有使用gdata的mod
+            //If it is empty, the mod of gdata is not used
             if (_check != null)
             {
                 _checkCode = _check.GetHashCode();
             }
 
             //检查gdata源文件是否发生更新，首先计算目前gdata的hash值
+            //Check whether the gdata source file is updated. First, calculate the hash value of the current gdata
             string _gdataHash = new FileInfo(path_g).LastWriteTimeUtc.GetHashCode().ToString();
 
             //读取_check.json文件，对比哈希值
+            //read _check.json file, Contrast Hash
             {
                 StreamReader reader = File.OpenText(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\_check.json");
                 JsonTextReader jsonTextReader = new JsonTextReader(reader);
                 JObject check_json = (JObject)JToken.ReadFrom(jsonTextReader);
                 reader.Close();
                 //Arklib版本更新，重写check
+                //arklib updata, rewrite cheak
                 if (!check_json["Arklib_ver"].ToString().Equals(version.ToString()))
                 {
                     LibDocument lib = new LibDocument();
@@ -202,12 +218,14 @@ namespace ArkLib
                     File.WriteAllText(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\_check.json", check1);
                 }
                 //gdata更新
+                //gdata updata
                 if (!check_json["Gdata_Hash"].ToString().Equals(_gdataHash))
                 {
                     check_json["Gdata_Hash"] = _gdataHash;
                     change = true;
                 }
                 //mod文件状态更新
+                //mod's state updata
                 if (!check_json["Modfileinfo_Hash"].ToString().Equals(_checkCode))
                 {
                     check_json["Modfileinfo_Hash"] = _checkCode.ToString();
@@ -225,6 +243,7 @@ namespace ArkLib
         }
 
         //根据文件夹内文件名和文件最后修改时间，计算哈希值
+        //Calculate the hash value according to the file name in the folder and the last modification time of the file
         static string FigureHash(string path)
         {
             string target = string.Empty;
@@ -242,11 +261,13 @@ namespace ArkLib
                 return;
 
             //列出所有mod需要合并的文件夹目录
+            //List the folder directories to be merged for all mods
             Queue<string> ListStatChange = new Queue<string>();
             Queue<string> ListAdditions = new Queue<string>();
             Queue<string> ListReplacements = new Queue<string>();
 
             //添加目录
+            //Add folders
             DirectoryInfo Root = new DirectoryInfo(root);
             foreach (DirectoryInfo nf in Root.GetDirectories())
             {
@@ -258,6 +279,7 @@ namespace ArkLib
                         if (nf1.Name == "config.json")
                         {
                             //读取json
+                            //read json
                             StreamReader reader = File.OpenText(nf1.FullName);
                             JsonTextReader jsonTextReader = new JsonTextReader(reader);
                             JObject config = (JObject)JToken.ReadFrom(jsonTextReader);
@@ -277,6 +299,7 @@ namespace ArkLib
             }
 
             //json合并
+            //merge json
 
             //Read game orginal gdata
             StreamReader reader_ = File.OpenText(path_g);
@@ -285,6 +308,7 @@ namespace ArkLib
             reader_.Close();
 
             //json添加
+            //add
             if (ListAdditions.Count > 0)
             {
                 pg.Merge(JsonAdd(ListAdditions), new JsonMergeSettings
@@ -293,6 +317,7 @@ namespace ArkLib
                 });
             }
             //替换
+            //replace
             if (ListReplacements.Count > 0)
             {
                 pg.Merge(JsonAdd(ListAdditions), new JsonMergeSettings
@@ -301,11 +326,13 @@ namespace ArkLib
                 });
             }
             //导出gdata
+            //Export gdata
             string json_output = JsonConvert.SerializeObject(pg, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\new_gdata.json", json_output);
 
 
             //xml合并
+            //merge xml
             {
                 Queue<FileInfo> XmlList = new Queue<FileInfo>();
                 while (ListStatChange.Count > 0)
@@ -419,7 +446,7 @@ namespace ArkLib
             while (JsonList.Count > 0)
             {
                 FileInfo temp = JsonList.Dequeue();
-                Debug.Log($"正在合并文件{temp.Name}");
+                Debug.Log($"Merging file: {temp.Name}");
 
                 //根据出队的文件名，创建JO类型的对象
                 JObject json = (JObject)JToken.ReadFrom(new JsonTextReader(File.OpenText(temp.FullName)));
