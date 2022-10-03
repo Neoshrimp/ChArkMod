@@ -31,7 +31,7 @@ namespace ArkLib
     public class ArkLib : BaseUnityPlugin
     {
         public const string GUID = "com.DRainw.ChArkMod.ArkLib";
-        public const string version = "1.1.1";
+        public const string version = "1.1.2";
 
         private static ConfigEntry<bool> CreatSample;
 
@@ -113,10 +113,11 @@ namespace ArkLib
         {
             bool change = false;
             DirectoryInfo Root = new DirectoryInfo(root);
-            if (!File.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\StatChange.xml") || !File.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\new_gdata.json"))
-            {
-                return true;
-            }
+            //fix
+            //if (!File.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\StatChange.xml") || !File.Exists(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\new_gdata.json"))
+            //{
+            //    return true;
+            //}
 
             //计算文件夹是否有变动
             //Whether the calculation folder has changed
@@ -216,17 +217,18 @@ namespace ArkLib
                     JObject jsonCheck = (JObject)JsonConvert.DeserializeObject(lib.Get_cheak());
                     string check1 = JsonConvert.SerializeObject(jsonCheck, Newtonsoft.Json.Formatting.Indented);
                     File.WriteAllText(BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\_check.json", check1);
+                    return CheckHash();
                 }
                 //gdata更新
                 //gdata updata
-                if (!check_json["Gdata_Hash"].ToString().Equals(_gdataHash))
+                if (!check_json["Gdata_Hash"].ToString().Equals(_gdataHash.ToString()))
                 {
                     check_json["Gdata_Hash"] = _gdataHash;
                     change = true;
                 }
                 //mod文件状态更新
                 //mod's state updata
-                if (!check_json["Modfileinfo_Hash"].ToString().Equals(_checkCode))
+                if (!check_json["Modfileinfo_Hash"].ToString().Equals(_checkCode.ToString()))
                 {
                     check_json["Modfileinfo_Hash"] = _checkCode.ToString();
                     change = true;
@@ -558,7 +560,7 @@ namespace ArkLib
         public string Get_cheak()
         {
             string str = @"{
-                                'Arklib_ver': '1.1.0',
+                                'Arklib_ver': '1.1.2',
                                 'Gdata_Hash': '',
                                 'Modfileinfo_Hash': ''
                             }";
