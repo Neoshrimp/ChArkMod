@@ -67,7 +67,7 @@ namespace ArkLib
         void OnDestroy()
         {
             if (harmony != null)
-                harmony.UnpatchAll(GUID);
+                harmony.UnpatchSelf();
         }
 
         static void CheckRoot()
@@ -259,7 +259,7 @@ namespace ArkLib
         {
             if (!change)
                 return;
-
+            
             //列出所有mod需要合并的文件夹目录
             //List the folder directories to be merged for all mods
             Queue<string> ListStatChange = new Queue<string>();
@@ -470,69 +470,49 @@ namespace ArkLib
         }
 
 
-        //Change StatChange patch
-        [HarmonyPatch(typeof(Mod_StatChangeMod))]
+
+        [HarmonyPatch(typeof(SaveManager), "Awake")]
         class StatChangeModPatch
         {
-            [HarmonyPatch(nameof(Mod_StatChangeMod.LoadFile))]
-            static bool Prefix()
+            static void Prefix()
             {
-                string path = BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\StatChange.xml";
-
-                try
-                {
-                    if (File.Exists(path))
-                    {
-                        FileStream fileStream = null;
-                        Mod_StatChangeMod.serializer = new XmlSerializer(typeof(Mod_StatChange_Script_Main));
-                        fileStream = new FileStream(path, FileMode.Open);
-                        try
-                        {
-                            Mod_StatChangeMod.Main = (Mod_StatChange_Script_Main)Mod_StatChangeMod.serializer.Deserialize(fileStream);
-                            fileStream.Close();
-                        }
-                        catch
-                        {
-                            fileStream.Close();
-                        }
-                    }
-                }
-                catch
-                {
-                }
-                return false;
+                Mod_StatChangeMod.Path = Paths.PluginPath + "\\ArkLib\\_data\\StatChange.xml";
+                Mod_StatChangeMod.LoadFile();
             }
         }
+
+
 
         //Change gdata path
         [HarmonyPatch(typeof(GDEDataManager))]
         class ModifyGdata
         {
 
-            [HarmonyPatch(nameof(GDEDataManager.Init), new Type[] { typeof(bool) })]
-            [HarmonyPrefix]
-            static bool Prefix(ref bool __result, bool encrypted = false)
+            static string NewMasterDataPath()
             {
-
-                //Define the gdata.json path as masterDataPath.
-                string masterDataPath = BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\new_gdata.json";
-                bool result = true;
-                GDEDataManager.GDEResourcesData = (GDESpriteResources)Resources.Load("GDESpriteResources");
-                try
-                {
-                    TextAsset dataAsset = new TextAsset(File.ReadAllText(masterDataPath));
-                    result = GDEDataManager.Init(dataAsset, encrypted);
-                }
-                catch (Exception message)
-                {
-                    Debug.LogError(message);
-                    result = false;
-                }
-                __result = result;
-                UnityEngine.Debug.Log($"Working in Init[1], data is {masterDataPath}");
-
-                return false;
+                var path = Paths.PluginPath + "\\ArkLib\\_data\\new_gdata.json";
+                Debug.Log($"Working in Init[1], data is {path}");
+                return path;
             }
+
+            [HarmonyPatch(nameof(GDEDataManager.Init), new Type[] { typeof(bool) })]
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+            {
+                foreach (var ci in instructions)
+                {
+                    if (ci.Is(OpCodes.Stsfld, AccessTools.Field(typeof(GDEDataManager), "masterDataPath")))
+                    {
+                        yield return new CodeInstruction(OpCodes.Pop);
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ModifyGdata), nameof(ModifyGdata.NewMasterDataPath)));
+                        yield return ci;
+                    }
+                    else
+                    {
+                        yield return ci;
+                    }
+                }
+            }
+
 
 
         }
