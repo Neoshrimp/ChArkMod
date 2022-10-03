@@ -481,6 +481,41 @@ namespace ArkLib
             }
         }
 
+        //Change StatChange patch
+/*        [HarmonyPatch(typeof(Mod_StatChangeMod))]
+        class StatChangeModPatch
+        {
+            [HarmonyPatch(nameof(Mod_StatChangeMod.LoadFile))]
+            static bool Prefix()
+            {
+                string path = BepInEx.Paths.PluginPath + "\\ArkLib\\_data\\StatChange.xml";
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        FileStream fileStream = null;
+                        Mod_StatChangeMod.serializer = new XmlSerializer(typeof(Mod_StatChange_Script_Main));
+                        fileStream = new FileStream(path, FileMode.Open);
+                        try
+                        {
+                            Mod_StatChangeMod.Main = (Mod_StatChange_Script_Main)Mod_StatChangeMod.serializer.Deserialize(fileStream);
+                            fileStream.Close();
+                        }
+                        catch
+                        {
+                            fileStream.Close();
+                        }
+                    }
+                }
+                catch
+                {
+                }
+                return false;
+            }
+        }*/
+
+
 
 
         //Change gdata path
