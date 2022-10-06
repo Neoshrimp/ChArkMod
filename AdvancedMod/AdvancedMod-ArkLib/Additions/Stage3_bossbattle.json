@@ -1,0 +1,176 @@
+{
+    "Queue_S3_PharosLeader_C": {
+        "Enemys": [
+            "S3_Boss_Pope",
+            "S3_Deathbringer"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": false,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": 0,
+        "Wave2": [
+            "S2_PopcornGirlC"
+        ],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [
+            "S3_Pharos_HighPriest",
+            "S3_Boss_Reaper"
+        ],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 20,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 21,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 18,
+        "_gdeSchema": "EnemyQueue",
+        "CustomBGM": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "_gdeIsList_CustomBGM": 0,
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    },
+    "Queue_S3_PharosLeader_B": {
+        "Enemys": [
+            "S3_Boss_Pope",
+            "S3_Deathbringer"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": false,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": 0,
+        "Wave2": [
+            "S2_PopcornGirlC"
+        ],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [
+            "S3_Boss_TheLight"
+        ],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 20,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 21,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 16,
+        "_gdeSchema": "EnemyQueue",
+        "CustomBGM": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "_gdeIsList_CustomBGM": 0,
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    },
+    "Queue_S3_Reaper_C": {
+        "Enemys": [
+            "S3_Pharos_HighPriest",
+            "S3_Boss_Reaper"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": false,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": false,
+        "Wave2": [
+            "S2_PopcornGirlC"
+        ],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [
+            "S3_Boss_Pope",
+            "S3_Deathbringer"
+        ],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 20,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 21,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 18,
+        "_gdeSchema": "EnemyQueue",
+        "CustomBGM": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "_gdeIsList_CustomBGM": 0,
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    },
+    "Queue_S3_TheLight_C": {
+        "Enemys": [
+            "S3_Pharos_HighPriest",
+            "S3_Boss_Reaper"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": false,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": false,
+        "Wave2": [
+            "S2_PopcornGirlC"
+        ],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [
+            "S3_Boss_TheLight"
+        ],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 20,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 21,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 18,
+        "_gdeSchema": "EnemyQueue",
+        "CustomBGM": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "_gdeIsList_CustomBGM": 0,
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    }
+}

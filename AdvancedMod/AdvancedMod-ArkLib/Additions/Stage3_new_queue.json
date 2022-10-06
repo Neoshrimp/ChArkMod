@@ -1,0 +1,92 @@
+{
+    "FCQ_5_0": {
+        "Enemys": [
+            "S3_Pharos_Tanker",
+            "S2_Pharos_Healer",
+            "S2_Pharos_Warrior",
+            "S2_Pharos_Mage",
+            "S3_PopeBallon"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": false,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": false,
+        "Wave2": [
+            "S3_PopeBallon",
+            "S2_PharosWitch",
+            "S2_Pharos_Healer"
+        ],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [
+            "S3_PopeBallon"
+        ],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 3,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 4,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 0,
+        "_gdeSchema": "EnemyQueue",
+        "CustomBGM": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "_gdeIsList_CustomBGM": 0,
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    },
+    "ECQ_5_0": {
+        "Enemys": [
+            "S3_Deathbringer",
+            "S3_Deathbringer"
+        ],
+        "_gdeType_Enemys": "Enemy",
+        "_gdeIsList_Enemys": 1,
+        "_gdeIsList_Pos": 1,
+        "_gdeType_Pos": "Vector3",
+        "Pos": [],
+        "BattleReward": "null",
+        "_gdeType_BattleReward": "Reward",
+        "_gdeType_Lock": "Bool",
+        "Lock": false,
+        "_gdeType_UseCustomPosition": "Bool",
+        "UseCustomPosition": false,
+        "Wave2": [
+            "S3_Pharos_Tanker",
+            "S3_Wolf"
+        ],
+        "_gdeType_Wave2": "Enemy",
+        "_gdeIsList_Wave2": 1,
+        "Wave3": [],
+        "_gdeType_Wave3": "Enemy",
+        "_gdeIsList_Wave3": 1,
+        "_gdeType_Wave2Turn": "Int",
+        "Wave2Turn": 3,
+        "_gdeType_Wave3Turn": "Int",
+        "Wave3Turn": 0,
+        "_gdeType_CustomeFogTurn": "Int",
+        "CustomeFogTurn": 6,
+        "_gdeSchema": "EnemyQueue",
+        "CustomBGM": 0,
+        "_gdeType_CustomBGM": "Bool",
+        "_gdeIsList_CustomBGM": 0,
+        "BattleExtended": "",
+        "_gdeType_BattleExtended": "String",
+        "_gdeIsList_BattleExtended": 0,
+        "DialogueObject": "",
+        "_gdeType_DialogueObject": "GameObject",
+        "_gdeIsList_DialogueObject": 0
+    }
+}
