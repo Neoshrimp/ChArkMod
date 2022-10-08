@@ -1,93 +1,84 @@
-# ArkLib
+# DBPatch
 
-As a dependency that make others mod can modify gdata.json
+Rewrite LanguageDB file to support localization of mod
 
 
 
-## How to use?
+## How to use
 
-If you are a player, put the ArkLib.dll in plugins folder (should be `Chrono Ark\x64\Master\BepInEx\plugins`) , other mods using this mod will contain an ArkLib folder, put it in plugins folder and replace it.
+For players:
 
-If you are a modder:
+Unzip zip file, put the `TeamCrop-DBPatch-version` folder in plugins folder
 
-1. Create a folder like this:
+Or [Thunderstore Mod Manager](https://www.overwolf.com/app/Thunderstore-Thunderstore_Mod_Manager) installation is recommended
 
-   - YourMod.dll
+For modder: 
 
-   - arklib_config.json
-
-     the json like this:
-
-     ```json
-     {
-       "Modname": "Yourmodname",
-       "UseArkLib": true
-     }     
-
-   Put ArkLib.dll and ArklibAPI.dll in plugins folder
-   Then start the game once
-
-2. You can find the folder like that:
-
-   - Yourmodname-ArkLib
-   - YourMod.dll
-   - arklib_config.json
-
-   and the Yourmodname-ArkLib like that:
-
-   - Additions
-   - Replacements
-   - Statchange
-
-3. If you want to add new json to gdata.json, create a new json file in "Additions" folder, the format of the json file should be like that:
-
+1. Create a folder like that: (at `plugins`)
+- YourModname
+	- YourMod.dll
+  - arklib_config.json
+	The json like that:
 ```json
-{		//start
-    "B_Sample": {
-        "_gdeType_Debuff": "Bool",
-        "Debuff": false,
-        "_gdeType_Name": "String",
-       	......
-        //depends on what you want to add, refer to game original gdata.json
-        //the path of the gdata.json is 
-        //Chrono Ark\ChronoArk_Data\StreamingAssets\gdata.json
-        ......
-    },
-    "S_Sample2": {
-       	......
-        //depends on what you want to add, refer to game original gdata.json
-        ......
-    },
-	......
-}		//end
+{
+  "Modname": "YourModname",
+  "UseDBPatch": true
+}
 ```
-The file name of this json file can be any, but internal json must be correct.
+Change `"UseDBPatch"` to true
 
-3. If you want to replace a json which in gdata.json, put new json file in "Replacements" folder
-    This function is not recommended unless there are special requirements.
-4. If your mod have "StatChange.txt", put it in `Statchange` folder
-    About StatChange.txt, check `Chrono Ark\ChronoArk_Data\StreamingAssets\Mod`
-5. When edit is completed, open `arklib_config.json, ` change "UseArkLib" to `true` to enable modify gdata function
-6. When the mod needs to be released, it should be that:
-    - Yourmodname-ArkLib
-      - Additions
-      - Replacements
-      - Statchange
-    - YourMod.dll
-    - arklib_config.json (correct format)
-    - icon.png
-    - manifest.json
-    - README.md
+2. Run the game once
 
-7. To ensure the correct dependency of mod, you can add ```[BepInDependency("com.DRainw.ChArkMod.ArkLib")]``` in your mod.dll, it is not necessary to reference ArkLib.dll in project reference.
+3. Create a csv file named one of the following four:
 
+   - LangDataDB.csv
+   - LangDialogueDB.csv
+   - LangRecordsDB.csv
+   - LangSystemDB.csv
 
+   Depends on the target who you want to modify, check the DB file in 
+   `Chrono Ark\ChronoArk_Data\StreamingAssets`
 
+   put the new file in `YourModname-DBPatch`
 
+4. (CAUTION!) The csv file format must be correct! 
 
-1.1.2: Bugs fixed
+   First, the format must be consistent with the game original file , then, the file must like that:
 
-2.0.0: Rewrite the folder struct
+   `start`
+
+   ```csv
+   Skill/S_Azar_11_Name,Text,,빛나는 검기,Shining Aura,光る剣気,光辉剑气,光輝劍氣
+   Skill/S_Azar_12_Name,Text,,이기어검,Dancing Sword,飛剣術,以气御剑,以氣御劍
+   ...
+   ...
+   Skill/S_Azar_13_Description,Text,,환영검을 2개를 손으로 가져옵니다. ,Add 2 Illusion Swords to your hand.,幻影の刃を2枚手札に加える。,将 2 个幻影剑拿到手中。,將 2 個幻影劍拿到手中。
+   Skill/S_Azar_13_Name,Text,,환영검 생성,Illusion Sword's Calling,幻影の刃召喚,生成幻影剑,生成幻影劍
+   
+   ```
+
+   `end`
+
+   Does not include the first row that defines each column's language type:
+
+   `Key,Type,Desc,*Korean,*English,Japanese,Chinese,Chinese-TW [zh-tw]`
+
+   This mod cannot add a new language.
+
+   A blank line must be left on the last line, that is related to whether the next mod can be read correctly.
+
+   If the modified entry is repeated with the original entry, the modified entry will be read and the original entry will be ignored.
+
+   Recommended to use [Visual Studio Code](https://code.visualstudio.com/download) to modify csv files.
+
+5. When the mod need release, the zip should contains:
+
+- YourModname-DBPatch folder
+  - (LangDBfile.csv)
+  - (LangDBfile.csv)
+  - ...
+- arklib_config.json
+- ...
 
 
 
