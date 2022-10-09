@@ -77,8 +77,14 @@ Change `"UseDBPatch"` to true
   - (LangDBfile.csv)
   - (LangDBfile.csv)
   - ...
+  
 - arklib_config.json
+
 - ...
+
+  Make sure run the game once before upload. 
+
+
 
 
 
