@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 using Debug = UnityEngine.Debug;
 
 
+
 namespace ArklibAPI
 {
     public class ModtheFolder
@@ -51,10 +52,6 @@ namespace ArklibAPI
                         {
                             if (Check(GetType, file))
                             {
-                                if (this.Prefix)
-                                {
-                                    FolderPreprocessing(temppath);
-                                }
                                 path.Add(tempname, temppath);
                                 Debug.Log($"ArklibAPI: Loading mod's folder {tempname}: {fd.FullName}, operator: {GetType}, return path: {temppath.FullName}.");
                                 tempname = string.Empty;
@@ -79,7 +76,7 @@ namespace ArklibAPI
             JObject config = (JObject)JToken.ReadFrom(jsonTextReader);
             reader.Close();
 
-            
+
 
             if (config.ContainsKey("Modname") && config["Modname"].ToString().Length > 2)
             {
@@ -92,7 +89,11 @@ namespace ArklibAPI
                     if (config["Use" + GetType].ToString().ToLower() == "true")
                     {
                         flag = true;
-                        
+                        if (this.Prefix)
+                        {
+                            FolderPreprocessing(temppath);
+                        }
+                        ModManagerFix(tempname, file.Directory.FullName, temppath);
                     }
                 }
                 else
@@ -123,6 +124,84 @@ namespace ArklibAPI
                     Directory.CreateDirectory(dir.FullName + "\\" + str);
                 }
             }
+        }
+
+        private void ModManagerFix(string name, string rootpath, DirectoryInfo targetpath)
+        {
+            FileInfo[] infos = targetpath.GetFiles("*", SearchOption.AllDirectories);
+            //还原
+            if (infos.Length == 0)
+            {
+                StreamReader reader = File.OpenText(rootpath + "\\_managerfix");
+                JsonTextReader jsonTextReader = new JsonTextReader(reader);
+                JObject config = (JObject)JToken.ReadFrom(jsonTextReader);
+                reader.Close();
+
+                foreach (FileInfo f in new DirectoryInfo(rootpath).GetFiles())
+                {
+                    if (config.ContainsKey(f.Name))
+                    {
+                        Debug.Log("Assembling  file: " + f.Name);
+                        File.Move(f.FullName, rootpath + config[f.Name].ToString());
+                    }
+                }
+
+                Managerfix new_data = new Managerfix
+                {
+                    Modname = name,
+                    isReplace = true
+                };
+                JObject config_ = JObject.Parse(JsonConvert.SerializeObject(new_data));
+                File.WriteAllText(rootpath + "\\_managerfix", JsonConvert.SerializeObject(config_, Newtonsoft.Json.Formatting.Indented));
+            }
+            else    //记录
+            {
+            FT:
+
+                if (File.Exists(rootpath + "\\_managerfix"))
+                {
+                    //read json
+                    StreamReader reader = File.OpenText(rootpath + "\\_managerfix");
+                    JsonTextReader jsonTextReader = new JsonTextReader(reader);
+                    JObject config = (JObject)JToken.ReadFrom(jsonTextReader);
+                    reader.Close();
+
+                    if (config["isReplace"].ToString().ToLower() == "true")
+                        return;
+
+                    foreach (FileInfo f in infos)
+                    {
+                        string relative_path = f.FullName.Replace(rootpath, "");
+                        if (config.ContainsKey(f.Name))
+                        {
+                            config[f.Name] = relative_path;
+                        }
+                        else
+                        {
+                            config.Add(f.Name, relative_path);
+                        }
+                    }
+
+                    File.WriteAllText(rootpath + "\\_managerfix", JsonConvert.SerializeObject(config, Newtonsoft.Json.Formatting.Indented));
+                }
+                else
+                {
+                    Managerfix new_data = new Managerfix
+                    {
+                        Modname = name,
+                        isReplace = false
+                    };
+                    JObject config = JObject.Parse(JsonConvert.SerializeObject(new_data));
+                    File.WriteAllText(rootpath + "\\_managerfix", JsonConvert.SerializeObject(config, Newtonsoft.Json.Formatting.Indented));
+                    goto FT;
+                }
+            }
+        }
+
+        private class Managerfix
+        {
+            public string Modname;
+            public bool isReplace;
         }
     }
 
