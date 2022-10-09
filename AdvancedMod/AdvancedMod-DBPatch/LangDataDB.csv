@@ -1,0 +1,41 @@
+﻿Buff/B_Caution1_Description,Text,,,Cannot get Fast Forward.Fixed ability will not increaseCountdown.,,无法获得快速旋转，固定技能不受倒计时增加影响。,无法获得快速旋转，固定技能不受倒计时增加影响。
+Buff/B_Caution1_Name,Text,,,Ex-Forward,,额外旋转,额外旋转
+Buff/B_CurseToken_1_Name,Text,,,Ascender's Bane: Hesitation,,进阶之灾：彷徨,进阶之灾：彷徨
+Buff/B_CurseToken_2_Name,Text,,,Ascender's Bane: Plague,,进阶之灾：瘟疫,进阶之灾：瘟疫
+Buff/B_DochiHide_Description,Text,,,Hiding Hedgehog.,,隐藏起来的草刺猬。,隐藏起来的草刺猬。
+Buff/B_DochiHide_Name,Text,,,Hiding!,,躲藏！,躲藏！
+Buff/B_exCursed_1_Name,Text,,,Extra Ascender: True Vision,,超进阶：真视,超进阶：真视
+Buff/B_Healhot_Name,Text,,,Ascender's Bane: Rotting,,进阶之灾：腐朽,进阶之灾：腐朽
+Buff/B_S4_4th_C_Description,Text,,,The light of Sanctuary refracts other places... phantom’s HP improving.,,圣域的光芒折射了别处...幻影的生命值得到提升。,圣域的光芒折射了别处...幻影的生命值得到提升。
+Buff/B_S4_4th_C_Name,Text,,,Refraction,,折射,折射
+Buff/B_S4_KingWait_C_Description,Text,,,When the Slacking is on the top.Apply 1 stack of Spot Weakness.,,每当鲁莽的行动置于最上方的手牌时，叠加一层观察弱点。,每当鲁莽的行动置于最上方的手牌时，叠加一层观察弱点。
+Buff/B_S4_KingWait_C_Name,Text,,,Spot Weakness,,观察弱点,观察弱点
+Enemy/S1_Dochi_LC_name,Text,,,Hedgehog Coward,,胆小鬼刺猬,胆小鬼刺猬
+Skill/S_Dochi_0C_Name,Text,,,Request for refuge,,寻求庇护,寻求庇护
+Enemy/S3_PopeBallon_name,Text,,,Pope's gift,,法洛斯的礼物,法洛斯的礼物
+Enemy/S2_PopcornGirlC_name,Text,,,PopcornGirl,,爆米花女孩,爆米花女孩
+Skill/S_PopcornGirlC_Name,Text,,,Interval,,中场休息,中场休息
+Buff/B_Butler_S_0_Name,Text,,,Receiving guests,,接待客人,接待客人
+Buff/B_Golem_S_0_C_Description,Text,,,Gain due to use of Enhance Module.,,因强化模块被使用获得的增益。,因强化模块被使用获得的增益。
+Buff/B_Golem_S_0_C_Name,Text,,,Enhancing!,,强化！,强化！
+Skill/S_LucyCurse_Late_C_Description,Text,,,Cannot be used,,无法使用,无法使用
+Skill/S_LucyCurse_Late_C_Name,Text,,,Ascender's Bane: Vexing,,进阶之灾：苦恼,进阶之灾：苦恼
+Enemy/S1_Kitchenmaid_C_name,Text,,,Kitchen Maid's phantom,,厨房女仆的幻影,厨房女仆的幻影
+Enemy/S1_Maid_C_name,Text,,,Maid's phantom,,女仆的幻影,女仆的幻影
+Enemy/S2_Horse_C_name,Text,,,Charging Wooden Horse's phantom,,旋转木马的幻影,旋转木马的幻影
+Enemy/MBoss2_0_C_name,Text,,,Parade Tank's phantom,,游行坦克的幻影,游行坦克的幻影
+Enemy/SR_Gunner_C_name,Text,,,Wilderness Ranger's phantom,,荒野神枪手的幻影,荒野神枪手的幻影
+Enemy/SR_Blade_C_name,Text,,,Wilderness Dual Wielder's phantom,,荒野双剑士的幻影,荒野双剑士的幻影
+Enemy/SR_Shotgun_C_name,Text,,,Wilderness Tyrant's phantom,,荒野暴君的幻影,荒野暴君的幻影
+Enemy/SR_Outlaw_C_name,Text,,,Wilderness Outlaw's phantom,,荒野大镖客的幻影,荒野大镖客的幻影
+Enemy/SR_GuitarList_C_name,Text,,,Instrumentalist's phantom,,吉他手的幻影,吉他手的幻影
+Enemy/SR_Samurai_C_name,Text,,,Wilderness Swordsman's phantom,,荒野剑客的幻影,荒野剑客的幻影
+Enemy/S1_Pharos_Healer_C_name,Text,,,Pharos Healer's phantom,,法洛斯治疗师的幻影,法洛斯治疗师的幻影
+Enemy/S2_PharosWitch_C_name,Text,,,Pharos Witch's phantom,,法洛斯魔女的幻影,法洛斯魔女的幻影
+Enemy/S2_Animatronics_C_name,Text,,,Animatronics's phantom,,仿真电子机械偶的幻影,仿真电子机械偶的幻影
+Enemy/S1_Carpenterdoll_C_name,Text,,,Wood Carpenter's phantom,,木匠人偶的幻影,木匠人偶的幻影
+Enemy/S2_Pierrot_Bat_C_name,Text,,,Enraged Jester's phantom,,暴躁小丑的幻影,暴躁小丑的幻影
+Enemy/S2_Pierrot_Ballon_C_name,Text,,,Balloon Jester's phantom,,气球小丑的幻影,气球小丑的幻影
+Enemy/MBoss2_1_0_C_name,Text,,,Warp time Gear,,扭曲时间的齿轮,扭曲时间的齿轮
+Enemy/MBoss_0_C_name,Text,,,Cerberus's phantom,,凯尔维罗斯的幻影,凯尔维罗斯的幻影
+Enemy/S3_Aallo_name,Text,,,Warning: A large amount of refraction is detected,,警告：侦测到大量折射波动,警告：侦测到大量折射波动
