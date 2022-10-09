@@ -79,6 +79,8 @@ The file name of this json file can be any, but internal json must be correct.
     - manifest.json
     - README.md
 
+    Make sure run the game once before upload.
+    
 7. To ensure the correct dependency of mod, you can add ```[BepInDependency("com.DRainw.ChArkMod.ArkLib")]``` in your mod.dll, it is not necessary to reference ArkLib.dll in project reference.
 
 
